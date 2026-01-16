@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+
+/* =========================
+   GLOBAL RESET & BASE
+   ========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #2b2f36;
+  color: #e5e7eb;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* =========================
+   THEME VARIABLES
+   ========================= */
+
+:root {
+  --bg: #2b2f36;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #c084fc;
+  --glow: rgba(192, 132, 252, 0.25);
+}
+
+/* Light theme (optional, future-ready) */
+[data-theme="light"] {
+  --bg: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --accent: #7c3aed;
+  --glow: rgba(124, 58, 237, 0.2);
+}
+
+/* =========================
+   GLOBAL SECTION RULES
+   ========================= */
+
+section {
+  scroll-margin-top: 90px; /* fixes navbar overlap */
+  position: relative;
+}
+
+/* =========================
+   ACCESSIBILITY
+   ========================= */
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* =========================
+   REDUCED MOTION
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 90px;
+}
+
