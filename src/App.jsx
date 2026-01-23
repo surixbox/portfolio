@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import SectionDivider from "./components/SectionDivider";
 import AnimateSection from "./components/AnimateSection";
 import SectionGlow from "./components/SectionGlow";
-import Status from "./components/status";
+import Status from "./components/Status";
 import SoftParticles from "./components/SoftParticles";
 // import ScrollGlow from "./components/ScrollGlow";
 // import SectionAwareGlow from "./components/SectionAwareGlow";
