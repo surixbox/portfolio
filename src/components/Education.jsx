@@ -36,40 +36,7 @@ function Education() {
                             </div>
                         </div>
                     </motion.div>
-                    {/* <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
-                    >
 
-                        <div className="relative pl-8 border-l-2 border-[var(--color-border)] ml-3 space-y-12">
-                            <div className="relative">
-                                <span className="absolute -left-[39px] top-1 h-5 w-5 rounded-full border-4 border-[var(--color-bg-secondary)] bg-[var(--color-accent)]" />
-
-                                <h3 className="text-xl font-bold text-white">Secondary School Leaving Certificate (SSLC)</h3>
-                                <p className="text-[var(--color-accent)] font-medium mt-1">State Board VMHS School</p>
-                                <p className="text-[var(--color-text-secondary)] mt-2 italic">2020</p>
-                            </div>
-                        </div>
-                    </motion.div> */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
-                    >
-
-                        <div className="relative pl-8 border-l-2 border-[var(--color-border)] ml-3 space-y-12">
-                            <div className="relative">
-                                <span className="absolute -left-[39px] top-1 h-5 w-5 rounded-full border-4 border-[var(--color-bg-secondary)] bg-[var(--color-accent)]" />
-
-                                <h3 className="text-xl font-bold text-white">Higher Secondary – Computer Science</h3>
-                                <p className="text-[var(--color-accent)] font-medium mt-1">State Board VMHS School</p>
-                                <p className="text-[var(--color-text-secondary)] mt-2 italic">2020 – 2022</p>
-                            </div>
-                        </div>
-                    </motion.div>
                     
 
                     {/* CERTIFICATIONS */}
