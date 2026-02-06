@@ -1,149 +1,74 @@
 import { motion } from "framer-motion";
-import { fadeUp, staggerContainer } from "../animations/variants";
 
 function Skills() {
+  const skillsConfig = [
+    {
+      title: "Programming Languages",
+      items: ["JavaScript (ES6+)", "TypeScript", "Python", "SQL"]
+    },
+    {
+      title: "Frontend Technologies",
+      items: ["React.js", "Angular", "HTML5", "CSS3", "Tailwind CSS", "Framer Motion"]
+    },
+    {
+      title: "Backend Technologies",
+      items: ["Node.js", "Express.js", "NestJS", "REST APIs"]
+    },
+    {
+      title: "Databases",
+      items: ["PostgreSQL", "MongoDB (Basic)"]
+    },
+    {
+      title: "Tools & Platforms",
+      items: ["Git & GitHub", "VS Code", "Postman", "Docker (Basic)", "Figma (Basic)"]
+    }
+  ];
+
   return (
-    <section
-      id="skills"
-      className="relative py-20 scroll-mt-24 overflow-hidden"
-    >
-      {/* SUBTLE BACKGROUND GLOW */}
-      <div
-        className="
-          absolute inset-0 -z-10
-          bg-[radial-gradient(circle_at_60%_40%,rgba(192,132,252,0.08),transparent_70%)]
-        "
-      />
+    <section id="skills" className="py-24 bg-[var(--color-bg-secondary)] relative">
+      <div className="container mx-auto px-6 max-w-7xl">
 
-      <div className="container mx-auto px-6">
+        <div className="mb-16 text-center">
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6">
+            Technical <span className="text-gradient-blue">Skills</span>
+          </h2>
+          <p className="text-[var(--color-text-secondary)] max-w-2xl mx-auto text-lg">
+            Technologies & Tools I Work With
+          </p>
+        </div>
 
-        {/* TITLE */}
-        <h2 className="text-xl font-medium mb-16 text-[color:var(--accent)] flex items-center gap-4">
-          #skills
-          <span className="w-32 h-px bg-[color:var(--accent)] opacity-60" />
-        </h2>
-
-        {/* LAYOUT */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16 items-start">
-
-          {/* LEFT CONTENT */}
-          <div className="relative hidden lg:block max-w-sm">
-            <p className="text-[color:var(--muted)] leading-relaxed">
-              A focused frontend stack built around modern JavaScript,
-              scalable UI architecture, and clean development practices.
-            </p>
-
-            {/* ACCENT LINE */}
-            {/* <div className="mt-8 w-20 h-px bg-[color:var(--accent)] opacity-60" /> */}
-
-            {/* DECOR */}
-            <div
-              className="mt-10 w-24 h-24 opacity-30"
-              style={{
-                backgroundImage:
-                  "radial-gradient(rgba(255,255,255,0.35) 1px, transparent 1px)",
-                backgroundSize: "12px 12px",
-              }}
-            />
-            <div className="absolute top-28 left-8 w-24 h-24 border border-[color:var(--accent)] opacity-60" />
-            <div className="absolute top-40 left-20 w-24 h-24 border border-[color:var(--accent)] opacity-40" />
-          </div>
-
-          {/* RIGHT CONTENT */}
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-120px" }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
-          >
-            {/* LANGUAGES (PRIMARY) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {skillsConfig.map((category, index) => (
             <motion.div
-              variants={fadeUp}
-              whileHover={{ y: -6 }}
-              transition={{ duration: 0.25 }}
-              className="
-                md:col-span-2
-                group relative rounded-xl
-                bg-white/[0.07] backdrop-blur-md
-                border border-white/10
-                p-6 transition-all duration-300
-                hover:border-[color:var(--accent)]
-              "
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-[var(--color-bg-primary)] p-8 rounded-2xl border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-colors group shadow-sm hover:shadow-md"
             >
-              <h4 className="text-[color:var(--accent)] mb-3">
-                Languages
-              </h4>
-              <p className="text-[color:var(--muted)] text-sm leading-relaxed">
-                JavaScript, TypeScript, Python
-              </p>
-            </motion.div>
+              <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                <span className="w-1 h-6 bg-[var(--color-accent)] rounded-full"></span>
+                {category.title}
+              </h3>
 
-            {/* FRAMEWORKS */}
-            <motion.div
-              variants={fadeUp}
-              whileHover={{ y: -6 }}
-              transition={{ duration: 0.25 }}
-              className="
-                group relative rounded-xl
-                bg-white/5 backdrop-blur-md
-                border border-white/10
-                p-6 transition-all duration-300
-                hover:border-[color:var(--accent)]
-              "
-            >
-              <h4 className="text-[color:var(--accent)] mb-3">
-                Frameworks
-              </h4>
-              <p className="text-[color:var(--muted)] text-sm leading-relaxed">
-                React, Angular, NestJS
-              </p>
+              <div className="flex flex-wrap gap-2">
+                {category.items.map((item, idx) => (
+                  <span
+                    key={idx}
+                    className="
+                      px-3 py-1.5 text-sm font-medium text-[var(--color-text-secondary)] 
+                      bg-[var(--color-bg-secondary)] rounded-lg border border-[var(--color-border)]
+                      group-hover:text-white group-hover:bg-[var(--color-accent)]/10 group-hover:border-[var(--color-accent)]/20
+                      transition-all duration-300
+                    "
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
             </motion.div>
-
-            {/* DATABASES */}
-            <motion.div
-              variants={fadeUp}
-              whileHover={{ y: -6 }}
-              transition={{ duration: 0.25 }}
-              className="
-                group relative rounded-xl
-                bg-white/5 backdrop-blur-md
-                border border-white/10
-                p-6 transition-all duration-300
-                hover:border-[color:var(--accent)]
-              "
-            >
-              <h4 className="text-[color:var(--accent)] mb-3">
-                Databases
-              </h4>
-              <p className="text-[color:var(--muted)] text-sm leading-relaxed">
-                PostgreSQL, SQLite
-              </p>
-            </motion.div>
-
-            {/* OTHER (FULL WIDTH SUPPORTING) */}
-            <motion.div
-              variants={fadeUp}
-              whileHover={{ y: -6 }}
-              transition={{ duration: 0.25 }}
-              className="
-                md:col-span-2
-                group relative rounded-xl
-                bg-white/5 backdrop-blur-md
-                border border-white/10
-                p-6 transition-all duration-300
-                hover:border-[color:var(--accent)]
-              "
-            >
-              <h4 className="text-[color:var(--accent)] mb-3">
-                Other
-              </h4>
-              <p className="text-[color:var(--muted)] text-sm leading-relaxed">
-                HTML, CSS, Tailwind CSS, Git, REST APIs
-              </p>
-            </motion.div>
-          </motion.div>
-
+          ))}
         </div>
       </div>
     </section>

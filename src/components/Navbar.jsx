@@ -1,12 +1,16 @@
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const sections = ["home", "projects", "skills", "about", "contacts"];
+const sections = ["home", "about", "skills", "projects", "contact"];
 
 function Navbar() {
   const [active, setActive] = useState("home");
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -15,9 +19,7 @@ function Navbar() {
           }
         });
       },
-      {
-        rootMargin: "-40% 0px -50% 0px",
-      }
+      { rootMargin: "-40% 0px -50% 0px" }
     );
 
     sections.forEach((id) => {
@@ -25,52 +27,53 @@ function Navbar() {
       if (el) observer.observe(el);
     });
 
-    return () => observer.disconnect();
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
-    <header className="fixed top-0 w-full z-50 backdrop-blur bg-[#262c33]/80 border-b border-white/10">
-      <div className="h-[74px] flex items-center justify-between px-6 md:px-10">
-
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-[var(--color-bg-primary)]/90 backdrop-blur-md shadow-lg border-b border-[var(--color-border)] py-4" : "bg-transparent py-6"
+        }`}
+    >
+      <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between">
         {/* LOGO */}
-        <div className="font-semibold tracking-wide text-gray-200">
-          suryakiran
-        </div>
+        <a href="#home" className="group flex items-center gap-2">
+          <span className="w-8 h-8 rounded-lg bg-[var(--color-accent)] flex items-center justify-center text-white font-bold text-lg">S</span>
+          <span className="font-display font-bold text-xl text-white tracking-tight group-hover:text-[var(--color-text-secondary)] transition-colors">
+            suryakiran.dev
+          </span>
+        </a>
 
-        {/* LINKS */}
-        <nav className="hidden md:flex gap-8 relative">
+        {/* DESKTOP NAV */}
+        <nav className="hidden md:flex items-center gap-2 bg-[var(--color-bg-secondary)]/50 p-1.5 rounded-full border border-[var(--color-border)]">
           {sections.map((id) => (
             <a
               key={id}
               href={`#${id}`}
-              className={`relative text-xs transition ${
-                active === id
-                  ? "text-purple-400"
-                  : "text-gray-400 hover:text-gray-200"
-              }`}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className={`
+                relative px-5 py-2 text-sm font-medium transition-all duration-300 rounded-full capitalize
+                ${active === id ? "text-white bg-[var(--color-accent)] shadow-md" : "text-[var(--color-text-secondary)] hover:text-white hover:bg-[var(--color-bg-tertiary)]"}
+              `}
             >
-              #{id}
-
-              {/* ACTIVE UNDERLINE */}
-              {active === id && (
-                <motion.span
-                  layoutId="nav-underline"
-                  className="absolute -bottom-2 left-0 w-full h-[2px] bg-purple-400"
-                  transition={{
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 25,
-                  }}
-                />
-              )}
-
-              {/* GLOW */}
-              {active === id && (
-                <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-10 h-6 bg-purple-500/30 blur-xl" />
-              )}
+              {id}
             </a>
           ))}
         </nav>
+
+        {/* MOBILE MENU TRIGGER */}
+        <div className="md:hidden text-white">
+          <button className="p-2">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </button>
+        </div>
       </div>
     </header>
   );

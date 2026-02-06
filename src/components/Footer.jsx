@@ -1,61 +1,27 @@
 function Footer() {
   return (
-    <footer className="border-t border-white/20 mt-24 pt-12">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8 px-6">
+    <footer className="bg-[#020617] border-t border-[var(--color-border)] py-12">
+      <div className="container mx-auto px-6 max-w-7xl">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
 
-        {/* LEFT */}
-        <div className="text-center md:text-left">
-          <strong className="block text-white">
-            Suryakiran
-          </strong>
-          <p className="text-sm text-gray-400">
-            Frontend-Focused Full-Stack Developer
-          </p>
-        </div>
-
-        {/* MEDIA */}
-        <div className="text-center md:text-right">
-          <span className="block text-xs text-gray-400 mb-2">
-            Media
-          </span>
-
-          <div className="flex justify-center md:justify-end gap-4">
-            <a
-              href="https://github.com/surixbox"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="text-xl text-gray-400 hover:text-purple-400 hover:-translate-y-0.5 transition"
-            >
-              🐙
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/devpytech"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="text-xl text-gray-400 hover:text-purple-400 hover:-translate-y-0.5 transition"
-            >
-              💼
-            </a>
-
-            <a
-              href="mailto:devpytech@gmail.com"
-              aria-label="Email"
-              className="text-xl text-gray-400 hover:text-purple-400 hover:-translate-y-0.5 transition"
-            >
-              📧
-            </a>
+          <div className="text-center md:text-left">
+            <h3 className="text-2xl font-display font-bold text-white mb-2">Suryakiran U</h3>
+            <p className="text-[var(--color-text-secondary)]">Frontend-Focused Full-Stack Developer</p>
           </div>
+
+          <div className="flex gap-8 text-[var(--color-text-secondary)] text-sm">
+            <a href="https://github.com/suribox" className="hover:text-[var(--color-accent)] transition-colors">GitHub</a>
+            <a href="https://linkedin.com/in/devpytech" className="hover:text-[var(--color-accent)] transition-colors">LinkedIn</a>
+            <a href="mailto:devpytech@gmail.com" className="hover:text-[var(--color-accent)] transition-colors">Email</a>
+          </div>
+
         </div>
 
+        <div className="border-t border-[var(--color-border)] mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-[var(--color-text-tertiary)]">
+          <p>© 2026 Suryakiran U. All Rights Reserved.</p>
+          <p>Building Clean, Responsive Web Applications</p>
+        </div>
       </div>
-
-      {/* COPYRIGHT */}
-      <p className="text-center text-xs text-gray-500 mt-6">
-        © 2026 Suryakiran U — Built with clean code
-      </p>
     </footer>
   );
 }
