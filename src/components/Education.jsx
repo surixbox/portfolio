@@ -37,8 +37,6 @@ function Education() {
                         </div>
                     </motion.div>
 
-                    
-
                     {/* CERTIFICATIONS */}
                     <motion.div
                         initial={{ opacity: 0, x: 20 }}
