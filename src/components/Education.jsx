@@ -36,7 +36,7 @@ function Education() {
                             </div>
                         </div>
                     </motion.div>
-                    <motion.div
+                    {/* <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
@@ -52,8 +52,8 @@ function Education() {
                                 <p className="text-[var(--color-text-secondary)] mt-2 italic">2020</p>
                             </div>
                         </div>
-                    </motion.div>
-                    <motion.div
+                    </motion.div> */}
+                    {/* <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
@@ -69,7 +69,7 @@ function Education() {
                                 <p className="text-[var(--color-text-secondary)] mt-2 italic">2020 – 2022</p>
                             </div>
                         </div>
-                    </motion.div>
+                    </motion.div> */}
                     
 
                     {/* CERTIFICATIONS */}
